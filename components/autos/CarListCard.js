@@ -74,7 +74,7 @@ const CarlistCard = ({ vehicle }) => {
             </Typography>
             <Box display="flex" flexDirection="row">
               <Typography variant="h6" className={classes.modelFormatting}>
-                {vehicle.model}
+                {`${vehicle.model} ${vehicle.year}`}
               </Typography>
             </Box>
             <Typography variant="h7" gutterBottom style={{ fontSize: 17 }}>
