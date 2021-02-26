@@ -27,7 +27,7 @@ const categoria = ({ vehicles }) => {
   );
 };
 
-export const getStaticProps = async (context) => {
+export const getServerSideProps = async (context) => {
   const res = await fetch(
     `https://c1-app-api.herokuapp.com/api/v1/vehicles?modelType=${context.params.categoria}`
   );
@@ -41,23 +41,23 @@ export const getStaticProps = async (context) => {
   };
 };
 
-export const getStaticPaths = async () => {
-  const res = await fetch(`https://c1-app-api.herokuapp.com/api/v1/vehicles`);
+// export const getStaticPaths = async () => {
+//   const res = await fetch(`https://c1-app-api.herokuapp.com/api/v1/vehicles`);
 
-  const vehiclesData = await res.json();
+//   const vehiclesData = await res.json();
 
-  const vehicles = vehiclesData.data;
+//   const vehicles = vehiclesData.data;
 
-  const categories = vehicles.map((vehicle) => vehicle.modelType);
+//   const categories = vehicles.map((vehicle) => vehicle.modelType);
 
-  const paths = categories.map((category) => ({
-    params: { categoria: category.toString() },
-  }));
+//   const paths = categories.map((category) => ({
+//     params: { categoria: category.toString() },
+//   }));
 
-  return {
-    paths,
-    fallback: false,
-  };
-};
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// };
 
 export default categoria;
