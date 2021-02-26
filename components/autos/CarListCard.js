@@ -52,6 +52,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const emptyImage =
+  "https://i.pinimg.com/originals/ae/8a/c2/ae8ac2fa217d23aadcc913989fcc34a2.png";
 const CarlistCard = ({ vehicle }) => {
   const classes = useStyles();
 
@@ -61,7 +63,7 @@ const CarlistCard = ({ vehicle }) => {
         <a>
           <CardMedia
             className={classes.media}
-            image="https://carone.com.mx/wp-content/uploads/2021/02/index_WRMH21-1.png"
+            image={vehicle.mainImage ? vehicle.mainImage : emptyImage}
             title="Paella dish"
           />
         </a>
