@@ -89,6 +89,7 @@ const CarlistCard = ({ vehicle }) => {
             </a>
           </Link>
         </Box>
+
         <Typography variant="h7" gutterBottom style={{ fontSize: 17 }}>
           Desde $160,000
         </Typography>
