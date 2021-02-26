@@ -81,11 +81,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Tabs = () => {
+const Tabs = ({ categories }) => {
   const classes = useStyles();
   return (
     <Container maxWidth="lg" style={{ marginTop: 20 }}>
-      <CarouselComponent data={tabs} title="Tipos de Vehiculos" />
+      <CarouselComponent data={categories} title="Tipos de Vehiculos" />
     </Container>
   );
 };

@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Item = ({ result }) => (
-  <Link href={`/categorias/${result.category}`}>
+  <Link href={`/categorias/${result.name}`}>
     <a>
       <div
         style={{
@@ -30,7 +30,7 @@ const Item = ({ result }) => (
         }}
       >
         <img
-          src={result.img}
+          src={result.image}
           style={{
             width: "100%",
             height: "100px",
@@ -45,7 +45,7 @@ const Item = ({ result }) => (
             fontWeight: "bold",
           }}
         >
-          {result.category}
+          {result.name}
         </p>
       </div>
     </a>
@@ -66,8 +66,8 @@ const CarouselComponent = ({ title, data }) => {
           showEmptySlots={true}
           pagination={true}
         >
-          {data.map((make) => (
-            <Item key={make._id} result={make} />
+          {data.map((category) => (
+            <Item key={category._id} result={category} />
           ))}
         </Carousel>
       </div>
