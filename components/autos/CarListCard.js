@@ -26,10 +26,12 @@ const useStyles = makeStyles((theme) => ({
 
   modelFormatting: {
     textTransform: "capitalize",
+    textDecoration: "none",
   },
 
   modelFormattingUpper: {
     textTransform: "uppercase",
+    textDecoration: "none",
   },
   media: {
     height: 0,
@@ -54,15 +56,19 @@ const CarlistCard = ({ vehicle }) => {
   const classes = useStyles();
 
   return (
-    <Link href={`/autos/${vehicle.make.name}/${vehicle.slug}`}>
-      <a>
-        <Card className={classes.root}>
+    <Card className={classes.root}>
+      <Link href={`/autos/${vehicle.make.name}/${vehicle.slug}`}>
+        <a>
           <CardMedia
             className={classes.media}
             image="https://carone.com.mx/wp-content/uploads/2021/02/index_WRMH21-1.png"
             title="Paella dish"
           />
-          <CardContent>
+        </a>
+      </Link>
+      <CardContent>
+        <Link href={`/marcas/${vehicle.make.name}`}>
+          <a style={{ textDecoration: "none", color: "black" }}>
             <Typography
               variant="subtitle1"
               className={[
@@ -72,27 +78,31 @@ const CarlistCard = ({ vehicle }) => {
             >
               {vehicle.make.name}{" "}
             </Typography>
-            <Box display="flex" flexDirection="row">
+          </a>
+        </Link>
+        <Box display="flex" flexDirection="row">
+          <Link href={`/autos/${vehicle.make.name}/${vehicle.slug}`}>
+            <a style={{ textDecoration: "none", color: "black" }}>
               <Typography variant="h6" className={classes.modelFormatting}>
                 {`${vehicle.model} ${vehicle.year}`}
               </Typography>
-            </Box>
-            <Typography variant="h7" gutterBottom style={{ fontSize: 17 }}>
-              Desde $160,000
-            </Typography>
-          </CardContent>
-          <Divider />
-          <CardActions disableSpacing>
-            <IconButton aria-label="add to favorites">
-              <FavoriteIcon />
-            </IconButton>
-            <IconButton aria-label="share">
-              <ShareIcon />
-            </IconButton>
-          </CardActions>
-        </Card>
-      </a>
-    </Link>
+            </a>
+          </Link>
+        </Box>
+        <Typography variant="h7" gutterBottom style={{ fontSize: 17 }}>
+          Desde $160,000
+        </Typography>
+      </CardContent>
+      <Divider />
+      <CardActions disableSpacing>
+        <IconButton aria-label="add to favorites">
+          <FavoriteIcon />
+        </IconButton>
+        <IconButton aria-label="share">
+          <ShareIcon />
+        </IconButton>
+      </CardActions>
+    </Card>
   );
 };
 

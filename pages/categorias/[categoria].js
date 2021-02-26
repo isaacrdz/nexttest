@@ -16,10 +16,11 @@ const categoria = ({ vehicles }) => {
       />
 
       <Container maxWidth="lg">
-        <Divider style={{ marginBottom: "10px" }} />
-
         <Divider style={{ marginBottom: "50px" }} />
-
+        <h1 style={{ marginBottom: "70px" }}>
+          {" "}
+          Busqueda por categoria: {categoria.toUpperCase()}
+        </h1>
         <CarList vehicles={vehicles} />
       </Container>
     </>
