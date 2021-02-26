@@ -1,0 +1,26 @@
+button.rec-dot {
+  background-color: rgb(230, 230, 237);
+  box-shadow: none;
+}
+
+button.rec-dot:hover,
+button.rec-dot:active,
+button.rec-dot:focus {
+  background-color: rgb(86, 86, 86);
+  box-shadow: none;
+}
+
+/* Forms */
+
+select {
+  width: 150px;
+  height: 30px;
+  padding: 5px;
+  color: green;
+}
+select option {
+  color: black;
+}
+select option:first-child {
+  color: green;
+}
