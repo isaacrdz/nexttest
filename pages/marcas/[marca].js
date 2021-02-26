@@ -27,7 +27,7 @@ const marca = ({ vehicles }) => {
   );
 };
 
-export const getStaticProps = async (context) => {
+export const getServerSideProps = async (context) => {
   const res = await fetch(
     `https://c1-app-api.herokuapp.com/api/v1/vehicles/vehiclesByMake/${context.params.marca}`
   );
@@ -41,23 +41,23 @@ export const getStaticProps = async (context) => {
   };
 };
 
-export const getStaticPaths = async () => {
-  const res = await fetch(`https://c1-app-api.herokuapp.com/api/v1/vehicles`);
+// export const getStaticPaths = async () => {
+//   const res = await fetch(`https://c1-app-api.herokuapp.com/api/v1/vehicles`);
 
-  const vehiclesData = await res.json();
+//   const vehiclesData = await res.json();
 
-  const vehicles = vehiclesData.data;
+//   const vehicles = vehiclesData.data;
 
-  const makes = vehicles.map((vehicle) => vehicle.make.name);
+//   const makes = vehicles.map((vehicle) => vehicle.make.name);
 
-  const paths = makes.map((make) => ({
-    params: { marca: make.toString() },
-  }));
+//   const paths = makes.map((make) => ({
+//     params: { marca: make.toString() },
+//   }));
 
-  return {
-    paths,
-    fallback: false,
-  };
-};
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// };
 
 export default marca;
